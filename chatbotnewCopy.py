@@ -32,7 +32,7 @@ def find_best_answer(question : str , data : dict):
 
 def chatbot(pm):
     
-    data = load_data("data.json")
+    data = load_data("D:\Project\chat-bot\dataset\data.json")
 
 
     userinput =pm
