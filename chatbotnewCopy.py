@@ -2,6 +2,7 @@ import json
 from difflib import get_close_matches
 import streamlit as st
 import numpy as np
+import subprocess
 def load_data(filepath : str):
     with open(filepath,"r") as datafile :
         data = json.load(datafile)
@@ -57,25 +58,24 @@ def chatbot(pm):
                 with st.chat_input("جواب"):
                     st.write("ربات : ممنون که جوابو به من یاد دادی")
     return answer
-                
-        
 
-if __name__ == "__main__":
+if __name__  == "__main__":
+
     st.title("ارتباط با پشتیبانی")
-    
+        
 
     st.markdown(
-    """
-    <style>
-        body {
-            direction: rtl;
-            text-align: right;
-        }
-    </style>
-    """,
+        """
+        <style>
+            body {
+                direction: rtl;
+                text-align: right;
+            }
+        </style>
+        """,
     unsafe_allow_html=True)
- 
-        
+    
+            
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
@@ -83,14 +83,14 @@ if __name__ == "__main__":
 
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
-              
+                
     if pm := st.chat_input("پیام بنویس"):
         jm = chatbot(pm)
         st.session_state.messages.append({"role":"user","content":pm})
         with st.chat_message("user"):
-                
+                    
             st.markdown(pm)
         with st.chat_message("assistant"):
             st.markdown(jm)
-    
+        
 
