@@ -30,7 +30,6 @@ def save_data(filepath : str , data : dict):
 def find_best_question(userquestion : str ,question: list[str]):
     matches = get_close_matches(userquestion,question,n=1 , cutoff=0.8)
     return matches[0] if matches else None
-print("ali")
 
 def find_best_answer(question : str , data : dict):
     for q in data["questions"]:
